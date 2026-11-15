@@ -1,22 +1,27 @@
-# Chaudhry Imran Shaheed Welfare Society
+Chaudhry Imran Shaheed Welfare Society Jallo Mor
 
-Welcome to our Welfare Society App.
+Welcome to Our Welfare Society App
 
-Our mission is to help needy people and serve humanity.
+Our Mission: Insaniyat Ki Khidmat Awaleen Ibadat.
 
-## Main Features
+Main Features
 
-- Registration of needy people
-- Donor management
-- Financial records
-- Welfare assistance requests
-- Admin control
-- Secure user access
+- Member Registration
+- Donation Management
+- Helping Needy People
+- Financial Records
+- Welfare Activities
+- Admin Dashboard
 
-## Security
+Security
 
-The app will use role-based access and strong security to protect user data.
+- Secure Admin Login
+- Protected Member Information
+- Access Control
+- Secure Donation Records
 
-## Mission
+Our Mission
 
-Insaniyat Ki Khidmat Awaleen Ibadat.
+To help poor and needy people, support deserving families, and serve humanity with honesty and dedication.
+
+Together We Can Make A Difference!
