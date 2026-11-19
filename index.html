@@ -5,15 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>چوہدری عمران شہید ویلفیئر سوسائٹی</title>
 <style>
-body{font-family:Arial,sans-serif;margin:0;background:#f2f6f3;color:#173b2b}
-header{background:#087443;color:white;text-align:center;padding:25px 12px}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f1f6f2;color:#173b2b}
+header{background:#086b43;color:white;text-align:center;padding:25px 12px}
 header h2{margin:5px}
-main{padding:18px;max-width:600px;margin:auto}
-.card{background:white;padding:18px;margin:14px 0;border-radius:12px;box-shadow:0 2px 8px #ccc}
+header p{margin:8px}
+main{max-width:850px;margin:auto;padding:14px}
+.card{background:white;padding:16px;margin:12px 0;border-radius:13px;box-shadow:0 2px 9px #ccc}
 h3{color:#087443}
-button{background:#087443;color:white;border:0;padding:12px 20px;border-radius:7px;font-size:16px}
-input{width:95%;padding:12px;margin:8px 0;border:1px solid #bbb;border-radius:6px}
-footer{text-align:center;padding:20px;color:#555}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat{border-right:5px solid #087443}
+.stat h2{color:#087443}
+button{background:#087443;color:white;border:0;padding:12px;border-radius:8px;margin:4px}
+input{width:100%;padding:12px;margin:7px 0;border:1px solid #bbb;border-radius:7px}
+nav{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:15px 0}
+.panel{display:none}
+.panel.active{display:block}
+.item{background:#f3f7f3;padding:12px;margin:8px 0;border-radius:8px}
+footer{text-align:center;padding:20px}
 </style>
 </head>
 <body>
@@ -21,31 +30,225 @@ footer{text-align:center;padding:20px;color:#555}
 <h2>چوہدری عمران شہید ویلفیئر سوسائٹی</h2>
 <p>جلو موڑ</p>
 <strong>انسانیت کی خدمت اولین عبادت</strong>
-</header>
-<main>
+  <div class="cards">
+<div class="card stat">
+<small>کل جمع شدہ عطیات</small>
+<h2 id="totalIn">0 روپے</h2>
+</div>
+<div class="card stat">
+<small>کل اخراجات</small>
+<h2 id="totalOut">0 روپے</h2>
+</div>
+<div class="card stat">
+<small>باقی فنڈ</small>
+<h2 id="balance">0 روپے</h2>
+</div>
+<div class="card stat">
+<small>کل عطیہ دہندگان</small>
+<h2 id="donorCount">0</h2>
+</div>
+</div>
+
+<nav>
+<button onclick="showTab('home')">مرکزی صفحہ</button>
+<button onclick="showTab('donations')">عطیات</button>
+<button onclick="showTab('expenses')">اخراجات</button>
+<button onclick="showTab('members')">ممبران</button>
+<button onclick="showTab('help')">مستحق افراد</button>
+<button onclick="showTab('admin')">انتظامیہ</button>
+</nav>
+
+<section id="home" class="panel active">
 <div class="card">
 <h3>ہماری سوسائٹی میں خوش آمدید</h3>
 <p>مستحق اور ضرورت مند لوگوں کی مدد ہمارا مقصد ہے۔</p>
 </div>
 <div class="card">
+<h3>مالی رپورٹ</h3>
+<p>جمع شدہ عطیات: <strong id="homeIn">0</strong> روپے</p>
+<p>کل اخراجات: <strong id="homeOut">0</strong> روپے</p>
+<p>باقی رقم: <strong id="homeBalance">0</strong> روپے</p>
+</div>
+</section>
+</header>
+<main>
+<section id="donations" class="panel">
+<div class="card">
+<h3>نیا عطیہ درج کریں</h3>
+<input id="donorName" placeholder="عطیہ دینے والے کا نام">
+<input id="donorAmount" type="number" min="1" placeholder="عطیہ کی رقم">
+<input id="donorDate" type="date">
+<input id="donorPurpose" placeholder="عطیہ کی تفصیل">
+<button onclick="addDonation()">عطیہ محفوظ کریں</button>
+</div>
+<div class="card">
+<h3>عطیات کی فہرست</h3>
+<button onclick="toggleList('donationList',this)">فہرست چھپائیں</button>
+<div id="donationList"></div>
+</div>
+</section>
+
+<section id="expenses" class="panel">
+<div class="card">
+<h3>نیا خرچ درج کریں</h3>
+<input id="expenseName" placeholder="رقم کس کام پر خرچ ہوئی؟">
+<input id="expenseAmount" type="number" min="1" placeholder="خرچ کی رقم">
+<input id="expenseDate" type="date">
+<input id="expenseDetail" placeholder="خرچ کی مکمل تفصیل">
+<button onclick="addExpense()">خرچ محفوظ کریں</button>
+</div>
+<div class="card">
+<h3>اخراجات کی فہرست</h3>
+<button onclick="toggleList('expenseList',this)">فہرست چھپائیں</button>
+<div id="expenseList"></div>
+</div>
+</section>
+  <section id="members" class="panel">
+<div class="card">
 <h3>ممبر رجسٹریشن</h3>
-<input placeholder="ممبر کا نام">
-<input placeholder="موبائل نمبر">
-<button>رجسٹریشن</button>
+<input id="memberName" placeholder="ممبر کا نام">
+<input id="memberPhone" placeholder="موبائل نمبر">
+<button onclick="addMember()">ممبر محفوظ کریں</button>
 </div>
 <div class="card">
-<h3>عطیات کا ریکارڈ</h3>
-<p>عطیات اور مالی معاملات کا ریکارڈ محفوظ رکھنے کے لیے۔</p>
+<h3>ممبران کی فہرست</h3>
+<div id="memberList"></div>
+</div>
+</section>
+
+<section id="help" class="panel">
+<div class="card">
+<h3>مستحق افراد کا اندراج</h3>
+<input id="helpName" placeholder="مستحق شخص کا نام">
+<input id="helpPhone" placeholder="موبائل نمبر">
+<input id="helpDetail" placeholder="ضرورت اور امداد کی تفصیل">
+<button onclick="addHelp()">ریکارڈ محفوظ کریں</button>
 </div>
 <div class="card">
-<h3>مستحق افراد کی مدد</h3>
-<p>ضرورت مند خاندانوں کی معلومات اور امداد۔</p>
+<h3>مستحق افراد کی فہرست</h3>
+<div id="helpList"></div>
 </div>
+</section>
+
+<section id="admin" class="panel">
 <div class="card">
 <h3>انتظامیہ</h3>
-<p>صرف مجاز انتظامیہ کے لیے خصوصی نظام بنایا جائے گا۔</p>
+<p>سوسائٹی کے مالی اور انتظامی معاملات کا شعبہ۔</p>
+<p>محفوظ ایڈمن لاگ اِن اگلے مرحلے میں شامل کیا جائے گا۔</p>
 </div>
+</section>
 </main>
-<footer>اللہ تعالیٰ ہمیں انسانیت کی خدمت کی توفیق عطا فرمائے۔</footer>
+
+<footer>
+اللہ تعالیٰ ہمیں انسانیت کی خدمت کی توفیق عطا فرمائے۔
+<br>
+چوہدری عمران شہید ویلفیئر سوسائٹی
+</footer>
+<script>
+const getData=(key)=>JSON.parse(localStorage.getItem(key)||"[]");
+const saveData=(key,data)=>localStorage.setItem(key,JSON.stringify(data));
+
+function showTab(id){
+document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+}
+
+function addDonation(){
+let name=document.getElementById('donorName').value.trim();
+let amount=Number(document.getElementById('donorAmount').value);
+let date=document.getElementById('donorDate').value;
+let purpose=document.getElementById('donorPurpose').value.trim();
+if(!name||amount<=0){alert('نام اور درست رقم درج کریں');return}
+let data=getData('donations');
+data.push({name,amount,date,purpose});
+saveData('donations',data);
+render();
+alert('عطیہ محفوظ ہوگیا');
+}
+
+function addExpense(){
+let name=document.getElementById('expenseName').value.trim();
+let amount=Number(document.getElementById('expenseAmount').value);
+let date=document.getElementById('expenseDate').value;
+let detail=document.getElementById('expenseDetail').value.trim();
+let donations=getData('donations');
+let expenses=getData('expenses');
+let balance=donations.reduce((s,x)=>s+x.amount,0)-expenses.reduce((s,x)=>s+x.amount,0);
+if(!name||amount<=0){alert('درست تفصیل اور رقم درج کریں');return}
+if(amount>balance){alert('باقی فنڈ ناکافی ہے');return}
+expenses.push({name,amount,date,detail});
+saveData('expenses',expenses);
+render();
+alert('خرچ محفوظ ہوگیا');
+}
+
+function addMember(){
+let name=document.getElementById('memberName').value.trim();
+let phone=document.getElementById('memberPhone').value.trim();
+if(!name){alert('نام درج کریں');return}
+let data=getData('members');
+data.push({name,phone});
+saveData('members',data);
+render();
+}
+
+function addHelp(){
+let name=document.getElementById('helpName').value.trim();
+let phone=document.getElementById('helpPhone').value.trim();
+let detail=document.getElementById('helpDetail').value.trim();
+if(!name){alert('نام درج کریں');return}
+let data=getData('help');
+data.push({name,phone,detail});
+saveData('help',data);
+render();
+}
+
+function toggleList(id,button){
+let list=document.getElementById(id);
+list.classList.toggle('hidden-list');
+button.textContent=list.classList.contains('hidden-list')?'فہرست دکھائیں':'فہرست چھپائیں';
+}
+
+function removeItem(key,index){
+if(!confirm('کیا آپ واقعی یہ ریکارڈ حذف کرنا چاہتے ہیں؟'))return;
+let data=getData(key);
+data.splice(index,1);
+saveData(key,data);
+render();
+}
+
+function escapeHTML(value){
+return String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function renderList(id,key,fields){
+let data=getData(key);
+document.getElementById(id).innerHTML=data.map((item,i)=>
+'<div class="item"><strong>'+escapeHTML(item[fields[0]]||'')+'</strong>'+
+fields.slice(1).map(f=>'<p>'+escapeHTML(String(item[f]??''))+'</p>').join('')+
+'<button style="background:#b83232" onclick="removeItem(\''+key+'\','+i+')">حذف کریں</button></div>'
+).join('')||'<p>ابھی کوئی ریکارڈ موجود نہیں۔</p>';
+}
+
+function render(){
+let donations=getData('donations');
+let expenses=getData('expenses');
+let totalIn=donations.reduce((s,x)=>s+x.amount,0);
+let totalOut=expenses.reduce((s,x)=>s+x.amount,0);
+let balance=totalIn-totalOut;
+document.getElementById('totalIn').textContent=totalIn.toLocaleString()+' روپے';
+document.getElementById('totalOut').textContent=totalOut.toLocaleString()+' روپے';
+document.getElementById('balance').textContent=balance.toLocaleString()+' روپے';
+document.getElementById('donorCount').textContent=donations.length;
+document.getElementById('homeIn').textContent=totalIn.toLocaleString();
+document.getElementById('homeOut').textContent=totalOut.toLocaleString();
+document.getElementById('homeBalance').textContent=balance.toLocaleString();
+renderList('donationList','donations',['name','amount','date','purpose']);
+renderList('expenseList','expenses',['name','amount','date','detail']);
+renderList('memberList','members',['name','phone']);
+renderList('helpList','help',['name','phone','detail']);
+}
+render();
+</script>
 </body>
 </html>
