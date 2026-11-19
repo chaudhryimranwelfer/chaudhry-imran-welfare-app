@@ -250,5 +250,78 @@ renderList('helpList','help',['name','phone','detail']);
 }
 render();
 </script>
+<section id="publicVoting" style="direction:rtl;text-align:right;background:#fff;padding:18px;margin:15px 0;border-radius:12px;border:2px solid #16834a">
+<h2>🗳️ عوامی رائے شماری</h2>
+<p>اپنی سوسائٹی کے منصوبوں پر اپنی رائے دیں۔</p>
+<h3>نیا منصوبہ شامل کریں</h3>
+<input id="voteTitle" placeholder="منصوبے کا نام" style="width:100%;padding:12px;box-sizing:border-box">
+<textarea id="voteDescription" placeholder="منصوبے کی تفصیل" style="width:100%;padding:12px;box-sizing:border-box"></textarea>
+<label>ووٹنگ ختم ہونے کی تاریخ اور وقت:</label>
+<input id="voteDeadline" type="datetime-local" style="width:100%;padding:12px;box-sizing:border-box">
+<button onclick="createPublicVote()">منصوبہ شائع کریں</button>
+<div id="votingProjects"></div>
+</section>
+
+<script>
+function getVotingProjects(){
+return JSON.parse(localStorage.getItem("welfareVotingProjects")||"[]");
+}
+function createPublicVote(){
+let title=document.getElementById("voteTitle").value.trim();
+let description=document.getElementById("voteDescription").value.trim();
+let deadline=document.getElementById("voteDeadline").value;
+if(!title||!description||!deadline||new Date(deadline)<=new Date()){
+alert("تفصیل اور مستقبل کا آخری وقت درج کریں");
+return;
+}
+let projects=getVotingProjects();
+projects.push({id:Date.now(),title,description,deadline,yes:0,no:0});
+localStorage.setItem("welfareVotingProjects",JSON.stringify(projects));
+document.getElementById("voteTitle").value="";
+document.getElementById("voteDescription").value="";
+document.getElementById("voteDeadline").value="";
+showVotingProjects();
+}
+function castPublicVote(id,choice){
+let projects=getVotingProjects();
+let p=projects.find(x=>x.id===id);
+if(!p||new Date()>=new Date(p.deadline)){
+alert("ووٹنگ ختم ہو چکی ہے");showVotingProjects();return;
+}
+let key="welfareVoted_"+id;
+if(localStorage.getItem(key)){
+alert("آپ پہلے ووٹ دے چکے ہیں");return;
+}
+if(choice==="yes")p.yes++;else p.no++;
+localStorage.setItem(key,choice);
+localStorage.setItem("welfareVotingProjects",JSON.stringify(projects));
+showVotingProjects();
+}
+function showVotingProjects(){
+let area=document.getElementById("votingProjects");
+let projects=getVotingProjects();
+area.innerHTML="<h3>منصوبے اور ووٹنگ</h3>";
+projects.forEach(p=>{
+let ended=new Date()>=new Date(p.deadline);
+let voted=localStorage.getItem("welfareVoted_"+p.id);
+area.innerHTML+=`<div style="border:1px solid #ccc;padding:12px;margin:12px 0;border-radius:10px">
+<h3>${escapeVoteText(p.title)}</h3>
+<p>${escapeVoteText(p.description)}</p>
+<p>آخری وقت: ${new Date(p.deadline).toLocaleString("ur-PK")}</p>
+<h3>${ended?"ووٹنگ بند ہے":"ووٹنگ جاری ہے"}</h3>
+<button ${ended||voted?"disabled":""} onclick="castPublicVote(${p.id},'yes')">حق میں</button>
+<button ${ended||voted?"disabled":""} onclick="castPublicVote(${p.id},'no')">مخالفت میں</button>
+<p>حق میں: ${p.yes} | مخالفت میں: ${p.no}</p>
+<p>کل ووٹ: ${p.yes+p.no}</p>
+</div>`;
+});
+}
+function escapeVoteText(value){
+let div=document.createElement("div");
+div.textContent=value;
+return div.innerHTML;
+}
+showVotingProjects();
+</script>
 </body>
 </html>
