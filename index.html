@@ -3,146 +3,65 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>چوہدری عمران شہید ویلفیئر سوسائٹی</title>
+<title>چوہدری عمران شہید ویلفیئر سوسائٹی جلو موڑ</title>
 
 <style>
 *{box-sizing:border-box}
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#f2f6f0;
-color:#075b3b;
-}
-header{
-background:linear-gradient(135deg,#075b3b,#13834e);
-color:white;
-padding:14px 8px;
-}
-.header-row{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:8px;
-}
-.side-art{
-width:26%;
-height:180px;
-background:#e8f5e9;
-border-radius:16px;
-overflow:hidden;
-box-shadow:0 4px 12px #0003;
-}
-.side-art svg{
-width:100%;
-height:100%;
-display:block;
-}
-.center-head{
-width:48%;
-text-align:center;
-}
-.logo{
-width:95px;
-height:95px;
-object-fit:contain;
-border-radius:50%;
-background:white;
-}
-h1{
-font-size:24px;
-margin:8px 0;
-}
-.header-row p{margin:5px}
-.tagline{
-font-size:16px;
-font-weight:bold;
-}
-.welcome{
-background:#fff;
-padding:15px;
-margin:12px;
-border-radius:15px;
-text-align:center;
-box-shadow:0 3px 10px #0002;
-}
-.stats{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:10px;
-padding:10px;
-}
-.stat{
-background:#fff;
-border-radius:15px;
-padding:18px 8px;
-text-align:center;
-box-shadow:0 3px 10px #0002;
-border-bottom:4px solid #13834e;
-}
-.stat h3{
-margin:5px 0;
-font-size:16px;
-}
-.stat strong{
-font-size:23px;
-color:#b8860b;
-}
-.section{
-background:#fff;
-margin:12px;
-padding:15px;
-border-radius:15px;
-box-shadow:0 3px 10px #0002;
-}
-.section h2{
-text-align:center;
-color:#075b3b;
-}
-.buttons{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:10px;
-}
-.buttons button{
-background:linear-gradient(135deg,#d4a642,#f5dc8b);
-border:0;
-padding:15px 8px;
-border-radius:12px;
-color:#064d32;
-font-size:16px;
-font-weight:bold;
-}
-.vote{
-border:2px solid #d4a642;
-padding:15px;
-border-radius:12px;
-text-align:center;
-}
-.vote button{
-padding:12px 25px;
-margin:5px;
-border:0;
-border-radius:10px;
-font-weight:bold;
-font-size:17px;
-background:#13834e;
-color:white;
-}
-.vote button.no{
-background:#b73a3a;
-}
-footer{
-text-align:center;
-padding:20px;
-background:#075b3b;
-color:white;
-}
-@media(max-width:600px){
-.side-art{height:125px;width:25%}
-.logo{width:68px;height:68px}
-h1{font-size:18px}
-.tagline{font-size:12px}
-.center-head{width:50%}
+body{margin:0;font-family:Arial,"Noto Nastaliq Urdu",sans-serif;background:#f3f7f2;color:#173b2b}
+header{background:linear-gradient(135deg,#14532d,#166534);padding:15px 10px 20px;border-bottom:5px solid #c6a13b}
+.head-content{max-width:1050px;margin:auto;display:grid;grid-template-columns:1fr 2fr 1fr;gap:12px;align-items:center;text-align:center}
+.side-photo{height:115px;border:2px solid #d4af37;border-radius:13px;overflow:hidden;background:#fff}
+.side-photo img{width:100%;height:100%;object-fit:cover}
+.center-head{color:white}
+.logo{width:100px;height:100px;object-fit:contain;background:white;border:3px solid #d4af37;border-radius:16px;padding:3px}
+.center-head h1{font-size:clamp(17px,3vw,27px);margin:7px 0;color:white}
+.center-head h2{font-size:18px;margin:3px;color:#f5df9b}
+.slogan{display:inline-block;margin-top:6px;padding:7px 13px;border-radius:25px;background:#fff4cc;color:#805e0b;font-weight:bold}
+main{max-width:1000px;margin:auto;padding:12px}
+.card{background:white;padding:16px;margin:12px 0;border-radius:15px;box-shadow:0 3px 12px #00000012;border:1px solid #e1eadf}
+.welcome{background:linear-gradient(135deg,#fff,#eff8ef);border-right:5px solid #d4af37;text-align:center}
+h3{color:#087443;margin-top:0}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:12px 0}
+.stat{background:linear-gradient(145deg,#fff,#f6fbf6);padding:13px 7px;border-radius:13px;text-align:center;border:1px solid #d8e6d9;border-right:4px solid #16804a}
+.stat small{font-weight:bold;color:#416b52;font-size:12px}
+.stat h2{margin:8px 0 2px;color:#087443;font-size:17px;overflow-wrap:anywhere}
+nav{max-width:1000px;margin:0 auto 14px;padding:0 12px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+button{cursor:pointer;background:linear-gradient(135deg,#d4af37,#f5d76e);color:#06452f;border:1px solid #b8860b;padding:11px 12px;border-radius:9px;font-weight:bold;font-size:14px}
+button:disabled{opacity:.45;cursor:not-allowed}
+.panel{display:none}
+.panel.active{display:block}
+input,textarea,select{width:100%;padding:12px;margin:7px 0;border:1px solid #bbb;border-radius:8px;font:inherit;background:white}
+textarea{min-height:85px}
+label{display:block;margin-top:9px;font-weight:bold}
+.item{background:#f3f7f3;padding:12px;margin:8px 0;border-radius:9px;border:1px solid #dce7dc;overflow-wrap:anywhere}
+.item p{margin:6px 0}
+.delete-btn{background:#b83232;color:white;border-color:#922020;padding:7px 12px}
+.card button{margin:4px 2px}
+.vote-card{border:2px solid #d4af37;background:linear-gradient(145deg,#fffdf5,#f4fbf4)}
+.vote-head{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.pill{background:#e5f4e7;color:#086b43;border-radius:20px;padding:6px 12px;font-weight:bold;font-size:13px}
+.target-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+.target-box{background:#fff;border:1px solid #e3d59c;border-radius:10px;padding:11px 6px;text-align:center;font-size:13px}
+.target-box b{display:block;color:#087443;font-size:17px;margin-top:6px}
+.progress{height:13px;background:#e5e9e4;border-radius:20px;overflow:hidden;margin:10px 0}
+.progress span{display:block;height:100%;background:linear-gradient(90deg,#0b7547,#d4af37);width:0%;transition:width .3s}
+.vote-actions{display:flex;gap:10px}
+.vote-actions button{flex:1;font-size:15px}
+.yes{background:linear-gradient(135deg,#b9e7c3,#e2f7e6);border-color:#4b9b60}
+.no{background:linear-gradient(135deg,#f1cccc,#f9e5e5);border-color:#bd7777;color:#842d2d}
+.note{background:#fff7e6;border:1px solid #efd8a5;padding:10px;border-radius:9px;font-size:13px}
+footer{text-align:center;padding:22px;color:#42624c;font-size:13px}
+@media(max-width:650px){
+ .head-content{grid-template-columns:70px 1fr 70px;gap:6px}
+ .side-photo{height:75px}
+ .logo{width:68px;height:68px}
+ .center-head h1{font-size:15px}
+ .center-head h2{font-size:14px}
+ .slogan{font-size:11px;padding:5px 7px}
+ .stats{grid-template-columns:repeat(2,1fr)}
+ .stat h2{font-size:16px}
+ nav{grid-template-columns:repeat(2,1fr)}
+ .target-grid{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
@@ -150,162 +69,481 @@ h1{font-size:18px}
 <body>
 
 <header>
-<div class="header-row">
+ <div class="head-content">
+  <div class="side-photo">
+   <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Exterior_of_Masjid_al-Nabawi_in_2024.jpg?width=600" alt="مسجد نبوی ﷺ">
+  </div>
 
-<!-- بائیں جانب کارٹون ویلفیئر تصویر -->
-<div class="side-art">
-<svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1">
-<stop offset="0" stop-color="#b7e7ff"/>
-<stop offset="1" stop-color="#f5ffe2"/>
-</linearGradient>
-</defs>
-<rect width="300" height="200" fill="url(#sky1)"/>
-<circle cx="245" cy="35" r="23" fill="#ffdc68"/>
-<path d="M0 120 Q70 65 140 120 T300 105 V200 H0Z" fill="#9bd58b"/>
-<path d="M0 145 Q90 110 170 145 T300 130 V200 H0Z" fill="#62b979"/>
-<!-- درخت -->
-<rect x="44" y="92" width="17" height="65" rx="5" fill="#93623b"/>
-<circle cx="52" cy="80" r="32" fill="#29985b"/>
-<circle cx="29" cy="91" r="20" fill="#44b56b"/>
-<circle cx="72" cy="92" r="23" fill="#21864d"/>
-<!-- گھر -->
-<rect x="170" y="92" width="85" height="60" rx="4" fill="#fff2cf"/>
-<path d="M158 95 L212 52 L268 95Z" fill="#e77c55"/>
-<rect x="195" y="110" width="25" height="42" rx="4" fill="#9c6547"/>
-<rect x="231" y="106" width="17" height="17" rx="2" fill="#8ed4ef"/>
-<!-- خدمت کرتے افراد -->
-<circle cx="112" cy="110" r="13" fill="#f3c69d"/>
-<path d="M97 108 Q100 90 115 97 L125 106" fill="#594334"/>
-<rect x="100" y="123" width="26" height="39" rx="8" fill="#377ec3"/>
-<path d="M102 140 L82 158 M124 140 L143 154" stroke="#f3c69d" stroke-width="9" stroke-linecap="round"/>
-<path d="M108 162 L104 184 M118 162 L126 184" stroke="#374a67" stroke-width="9" stroke-linecap="round"/>
-<!-- مستحق فرد -->
-<circle cx="150" cy="125" r="12" fill="#e9b78f"/>
-<path d="M137 124 Q141 108 155 114" fill="#5a4638"/>
-<rect x="137" y="137" width="25" height="32" rx="8" fill="#f0b34c"/>
-<path d="M140 146 L130 156 M159 146 L173 155" stroke="#e9b78f" stroke-width="8" stroke-linecap="round"/>
-<path d="M142 168 L138 185 M157 168 L162 185" stroke="#49546a" stroke-width="8" stroke-linecap="round"/>
-<!-- تحفہ -->
-<rect x="127" y="151" width="27" height="17" rx="3" fill="#df5b5b"/>
-<path d="M140 151 V168 M127 157 H154" stroke="#ffe59a" stroke-width="3"/>
-</svg>
-</div>
+  <div class="center-head">
+   <img class="logo" src="assets/society-logo.png" alt="سوسائٹی لوگو">
+   <h1>چوہدری عمران شہید ویلفیئر سوسائٹی</h1>
+   <h2>جلو موڑ</h2>
+   <div class="slogan">انسانیت کی خدمت اولین عبادت</div>
+  </div>
 
-<div class="center-head">
-
-<img class="logo" src="logo.jpeg" alt="سوسائٹی لوگو">
-
-<h1>چوہدری عمران شہید ویلفیئر سوسائٹی</h1>
-<p>جلو موڑ</p>
-<p class="tagline">انسانیت کی خدمت اولین عبادت</p>
-
-</div>
-
-<!-- دائیں جانب کارٹون تعاون کی تصویر -->
-<div class="side-art">
-<svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<linearGradient id="sky2" x1="0" y1="0" x2="0" y2="1">
-<stop offset="0" stop-color="#ffe8b0"/>
-<stop offset="1" stop-color="#fff8e7"/>
-</linearGradient>
-</defs>
-<rect width="300" height="200" fill="url(#sky2)"/>
-<circle cx="48" cy="38" r="22" fill="#ffc85c"/>
-<path d="M0 140 Q65 105 140 130 T300 120 V200 H0Z" fill="#b5db92"/>
-<path d="M0 155 Q100 125 200 155 T300 145 V200 H0Z" fill="#65bd82"/>
-<!-- دل -->
-<path d="M150 53 C130 30 95 47 110 72 L150 107 L190 72 C205 47 170 30 150 53Z" fill="#f36d77"/>
-<!-- بائیں شخص -->
-<circle cx="90" cy="100" r="18" fill="#e8b58e"/>
-<path d="M72 97 Q75 76 95 82 L106 93" fill="#624533"/>
-<rect x="72" y="118" width="36" height="50" rx="12" fill="#428bd0"/>
-<path d="M77 131 L53 147 M104 132 L130 116" stroke="#e8b58e" stroke-width="11" stroke-linecap="round"/>
-<path d="M83 167 L78 190 M99 167 L108 190" stroke="#344c70" stroke-width="11" stroke-linecap="round"/>
-<!-- دائیں شخص -->
-<circle cx="210" cy="100" r="18" fill="#f0c39d"/>
-<path d="M191 95 Q194 75 214 82 L225 94" fill="#604736"/>
-<rect x="192" y="118" width="36" height="50" rx="12" fill="#e69b43"/>
-<path d="M197 132 L172 116 M225 131 L247 148" stroke="#f0c39d" stroke-width="11" stroke-linecap="round"/>
-<path d="M201 167 L196 190 M219 167 L227 190" stroke="#455570" stroke-width="11" stroke-linecap="round"/>
-<!-- ہاتھ -->
-<path d="M128 116 Q145 105 163 116 Q173 120 166 130 Q155 140 140 133 L128 126Z" fill="#f0c39d"/>
-<!-- پھول -->
-<g transform="translate(35 160)">
-<path d="M0 0 L0 24" stroke="#37804d" stroke-width="4"/>
-<circle cx="0" cy="-6" r="7" fill="#ff8bb1"/>
-<circle cx="-8" cy="-2" r="7" fill="#ff8bb1"/>
-<circle cx="8" cy="-2" r="7" fill="#ff8bb1"/>
-<circle cx="0" cy="4" r="7" fill="#ff8bb1"/>
-<circle cx="0" cy="-1" r="4" fill="#ffe16d"/>
-</g>
-</svg>
-</div>
-
-</div>
+  <div class="side-photo">
+   <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Holy_Kaaba.jpg?width=600" alt="خانہ کعبہ">
+  </div>
+ </div>
 </header>
 
-<div class="welcome">
-<h2>خوش آمدید</h2>
-<p>ہم مل کر انسانیت کی خدمت اور مستحق افراد کی مدد کے لیے کوشاں ہیں۔</p>
+<main>
+
+<div class="card welcome">
+ <h3>ہماری سوسائٹی میں خوش آمدید</h3>
+ <p>مستحق اور ضرورت مند لوگوں کی مدد ہمارا مقصد ہے۔</p>
+ <p>آئیے مل کر انسانیت کی خدمت کریں۔</p>
 </div>
 
 <div class="stats">
-
-<div class="stat">
-<h3>کل جمع شدہ عطیات</h3>
-<strong>0 روپے</strong>
+ <div class="stat"><small>کل جمع شدہ عطیات</small><h2 id="totalIn">0 روپے</h2></div>
+ <div class="stat"><small>کل اخراجات</small><h2 id="totalOut">0 روپے</h2></div>
+ <div class="stat"><small>باقی فنڈ</small><h2 id="balance">0 روپے</h2></div>
+ <div class="stat"><small>کل عطیہ دہندگان</small><h2 id="donorCount">0</h2></div>
 </div>
 
-<div class="stat">
-<h3>کل اخراجات</h3>
-<strong>0 روپے</strong>
-</div>
+</main>
 
-<div class="stat">
-<h3>باقی فنڈ</h3>
-<strong>0 روپے</strong>
-</div>
+<nav>
+ <button onclick="showTab('home')">مرکزی صفحہ</button>
+ <button onclick="showTab('donations')">عطیات</button>
+ <button onclick="showTab('expenses')">اخراجات</button>
+ <button onclick="showTab('members')">مستقل ممبران</button>
+ <button onclick="showTab('help')">مستحق افراد</button>
+ <button onclick="showTab('admin')">انتظامیہ</button>
+</nav>
 
-<div class="stat">
-<h3>کل عطیہ دہندگان</h3>
-<strong>0</strong>
-</div>
+<main>
 
-</div>
+<!-- مرکزی صفحہ -->
+<section id="home" class="panel active">
 
-<div class="section">
-<h2>سوسائٹی کے اہم شعبے</h2>
-<div class="buttons">
-<button>مستحق افراد</button>
-<button>راشن کی فراہمی</button>
-<button>عطیات</button>
-<button>اخراجات</button>
-<button>ممبران</button>
-<button>انتظامیہ</button>
-</div>
-</div>
+ <div class="card welcome">
+  <h3>فلاحی خدمات اور عوامی تعاون</h3>
+  <p>آپ کا تعاون کسی ضرورت مند کے چہرے پر خوشی لا سکتا ہے۔</p>
+ </div>
 
-<div class="section">
-<h2>مجوزہ منصوبے</h2>
+ <div class="card vote-card">
+  <div class="vote-head">
+   <h3>🗳️ عوامی رائے شماری — منصوبے کی منظوری</h3>
+   <span class="pill" id="voteStatus">منصوبہ دستیاب نہیں</span>
+  </div>
+  <div id="publicVote">
+   <p>ابھی کوئی منصوبہ شائع نہیں کیا گیا۔</p>
+  </div>
+ </div>
 
-<div class="vote">
-<h3>منصوبے کی منظوری</h3>
-<p>یہاں سوسائٹی کے مجوزہ منصوبے کی تفصیل ظاہر ہوگی۔</p>
-<p>کیا آپ اس منصوبے کی منظوری دیتے ہیں؟</p>
+ <div class="card">
+  <h3>منصوبے کا ہدف اور فنڈ کی صورتحال</h3>
+  <div class="target-grid">
+   <div class="target-box">منصوبے کا کل ہدف<b id="homeTarget">0 روپے</b></div>
+   <div class="target-box">اب تک جمع شدہ رقم<b id="homeRaised">0 روپے</b></div>
+   <div class="target-box">باقی رقم<b id="homeRemaining">0 روپے</b></div>
+  </div>
+  <div class="progress"><span id="homeProgress"></span></div>
+  <p id="homePercent" style="text-align:center">0٪ مکمل</p>
+ </div>
 
-<button onclick="alert('پریویو میں ووٹ محفوظ نہیں ہوگا')">ہاں</button>
-<button class="no" onclick="alert('پریویو میں ووٹ محفوظ نہیں ہوگا')">نہیں</button>
+</section>
 
-</div>
-</div>
+<!-- عطیات -->
+<section id="donations" class="panel">
+
+ <div class="card">
+  <h3>نیا عطیہ درج کریں</h3>
+  <label>عطیہ دینے والے کا نام</label>
+  <input id="donorName" placeholder="نام درج کریں">
+  <label>عطیہ کی رقم</label>
+  <input id="donorAmount" type="number" min="1" placeholder="رقم درج کریں">
+  <label>تاریخ</label>
+  <input id="donorDate" type="date">
+  <label>عطیہ کی تفصیل</label>
+  <input id="donorPurpose" placeholder="مثلاً راشن، نقد عطیہ وغیرہ">
+  <button onclick="addDonation()">عطیہ محفوظ کریں</button>
+ </div>
+
+ <div class="card">
+  <h3>عطیات کی فہرست</h3>
+  <div id="donationList"></div>
+ </div>
+
+</section>
+
+<!-- اخراجات -->
+<section id="expenses" class="panel">
+
+ <div class="card">
+  <h3>نیا خرچ درج کریں</h3>
+  <label>خرچ کی تفصیل</label>
+  <input id="expenseName" placeholder="رقم کس کام پر خرچ ہوئی؟">
+  <label>خرچ کی رقم</label>
+  <input id="expenseAmount" type="number" min="1" placeholder="رقم درج کریں">
+  <label>تاریخ</label>
+  <input id="expenseDate" type="date">
+  <label>مکمل تفصیل</label>
+  <input id="expenseDetail" placeholder="مزید تفصیل">
+  <button onclick="addExpense()">خرچ محفوظ کریں</button>
+ </div>
+
+ <div class="card">
+  <h3>اخراجات کی فہرست</h3>
+  <div id="expenseList"></div>
+ </div>
+
+</section>
+
+<!-- مستقل ممبران -->
+<section id="members" class="panel">
+
+ <div class="card">
+  <h3>مستقل ممبر کا اندراج</h3>
+  <label>ممبر کا نام</label>
+  <input id="memberName" placeholder="ممبر کا نام">
+  <label>موبائل نمبر</label>
+  <input id="memberPhone" placeholder="موبائل نمبر">
+  <label>پتہ</label>
+  <input id="memberAddress" placeholder="گاؤں یا علاقہ">
+  <button onclick="addMember()">ممبر محفوظ کریں</button>
+ </div>
+
+ <div class="card">
+  <h3>مستقل ممبران کی فہرست</h3>
+  <div id="memberList"></div>
+ </div>
+
+</section>
+
+<!-- مستحق افراد -->
+<section id="help" class="panel">
+
+ <div class="card">
+  <h3>مستحق افراد کا اندراج</h3>
+  <label>مستحق شخص کا نام</label>
+  <input id="helpName" placeholder="نام درج کریں">
+  <label>موبائل نمبر</label>
+  <input id="helpPhone" placeholder="موبائل نمبر">
+  <label>امداد کی ضرورت</label>
+  <input id="helpDetail" placeholder="مثلاً راشن، علاج، تعلیم">
+  <button onclick="addHelp()">ریکارڈ محفوظ کریں</button>
+ </div>
+
+ <div class="card">
+  <h3>مستحق افراد کی فہرست</h3>
+  <div id="helpList"></div>
+ </div>
+
+</section>
+
+<!-- انتظامیہ -->
+<section id="admin" class="panel">
+
+ <div class="card">
+  <h3>انتظامیہ — نیا منصوبہ شائع کریں</h3>
+  <label>منصوبے کا نام</label>
+  <input id="voteTitle" placeholder="منصوبے کا نام">
+  <label>منصوبے کی تفصیل</label>
+  <textarea id="voteDescription" placeholder="منصوبے کی مکمل تفصیل"></textarea>
+  <label>منصوبے کا مالی ہدف (روپے)</label>
+  <input id="voteTarget" type="number" min="1" placeholder="مثلاً 500000">
+  <label>ووٹنگ ختم ہونے کی تاریخ اور وقت</label>
+  <input id="voteDeadline" type="datetime-local">
+  <button onclick="createPublicVote()">منصوبہ شائع کریں</button>
+  <p class="note">نیا منصوبہ شائع کرنے سے موجودہ عوامی رائے شماری کی جگہ نیا منصوبہ آجائے گا۔</p>
+ </div>
+
+ <div class="card">
+  <h3>موجودہ منصوبے کی تفصیل</h3>
+  <div id="adminProjectInfo">ابھی کوئی منصوبہ موجود نہیں۔</div>
+ </div>
+
+ <div class="card">
+  <h3>انتظامیہ کی معلومات</h3>
+  <p>سوسائٹی کے تمام مالی اور انتظامی ریکارڈ کی درستگی اور حفاظت ضروری ہے۔</p>
+  <p class="note">یہ ابتدائی براؤزر والا انتظامی صفحہ ہے، پاس ورڈ سے محفوظ آن لائن ایڈمن نظام نہیں۔ عوامی ویب سائٹ پر حساس معلومات شامل نہ کریں۔</p>
+ </div>
+
+</section>
+
+</main>
 
 <footer>
-<p>چوہدری عمران شہید ویلفیئر سوسائٹی، جلو موڑ</p>
-<p>انسانیت کی خدمت اولین عبادت</p>
+ اللہ تعالیٰ ہمیں انسانیت کی خدمت کی توفیق عطا فرمائے۔
+ <br>
+ چوہدری عمران شہید ویلفیئر سوسائٹی — جلو موڑ
 </footer>
+
+<script>
+/* ریکارڈ اسی براؤزر میں محفوظ ہوگا */
+function getData(key){
+ try{return JSON.parse(localStorage.getItem(key)||'[]')}
+ catch(e){return []}
+}
+function saveData(key,data){
+ localStorage.setItem(key,JSON.stringify(data));
+}
+function money(n){
+ return Number(n||0).toLocaleString('ur-PK')+' روپے';
+}
+function showTab(id){
+ document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+function esc(v){
+ return String(v??'').replace(/[&<>"']/g,c=>({
+ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+ }[c]));
+}
+
+/* عطیات */
+function addDonation(){
+ let name=document.getElementById('donorName').value.trim();
+ let amount=Number(document.getElementById('donorAmount').value);
+ let date=document.getElementById('donorDate').value;
+ let purpose=document.getElementById('donorPurpose').value.trim();
+
+ if(!name||amount<=0){
+  alert('نام اور درست رقم درج کریں');
+  return;
+ }
+
+ let d=getData('donations');
+ d.push({name,amount,date,purpose});
+ saveData('donations',d);
+
+ ['donorName','donorAmount','donorDate','donorPurpose'].forEach(id=>document.getElementById(id).value='');
+ render();
+ alert('عطیہ محفوظ ہوگیا');
+}
+
+/* اخراجات */
+function addExpense(){
+ let name=document.getElementById('expenseName').value.trim();
+ let amount=Number(document.getElementById('expenseAmount').value);
+ let date=document.getElementById('expenseDate').value;
+ let detail=document.getElementById('expenseDetail').value.trim();
+
+ let donations=getData('donations');
+ let expenses=getData('expenses');
+ let totalIn=donations.reduce((s,x)=>s+Number(x.amount),0);
+ let totalOut=expenses.reduce((s,x)=>s+Number(x.amount),0);
+ let balance=totalIn-totalOut;
+
+ if(!name||amount<=0){
+  alert('درست تفصیل اور رقم درج کریں');
+  return;
+ }
+ if(amount>balance){
+  alert('باقی فنڈ ناکافی ہے');
+  return;
+ }
+
+ expenses.push({name,amount,date,detail});
+ saveData('expenses',expenses);
+
+ ['expenseName','expenseAmount','expenseDate','expenseDetail'].forEach(id=>document.getElementById(id).value='');
+ render();
+ alert('خرچ محفوظ ہوگیا');
+}
+
+/* ممبران */
+function addMember(){
+ let name=document.getElementById('memberName').value.trim();
+ let phone=document.getElementById('memberPhone').value.trim();
+ let address=document.getElementById('memberAddress').value.trim();
+
+ if(!name){alert('ممبر کا نام درج کریں');return}
+
+ let d=getData('members');
+ d.push({name,phone,address});
+ saveData('members',d);
+
+ ['memberName','memberPhone','memberAddress'].forEach(id=>document.getElementById(id).value='');
+ render();
+ alert('ممبر محفوظ ہوگیا');
+}
+
+/* مستحق افراد */
+function addHelp(){
+ let name=document.getElementById('helpName').value.trim();
+ let phone=document.getElementById('helpPhone').value.trim();
+ let detail=document.getElementById('helpDetail').value.trim();
+
+ if(!name){alert('نام درج کریں');return}
+
+ let d=getData('help');
+ d.push({name,phone,detail});
+ saveData('help',d);
+
+ ['helpName','helpPhone','helpDetail'].forEach(id=>document.getElementById(id).value='');
+ render();
+ alert('مستحق فرد کا ریکارڈ محفوظ ہوگیا');
+}
+
+/* ریکارڈ حذف کرنا */
+function removeItem(key,index){
+ if(!confirm('کیا آپ واقعی یہ ریکارڈ حذف کرنا چاہتے ہیں؟'))return;
+ let d=getData(key);
+ d.splice(index,1);
+ saveData(key,d);
+ render();
+}
+
+/* فہرست بنانا */
+function renderList(id,key,fields){
+ let data=getData(key);
+ let html=data.map((x,i)=>{
+  let details=fields.slice(1).map(f=>'<p>'+esc(x[f]||'')+'</p>').join('');
+  return '<div class="item"><strong>'+esc(x[fields[0]])+'</strong>'+details+
+  '<button class="delete-btn" onclick="removeItem(\''+key+'\','+i+')">حذف کریں</button></div>';
+ }).join('');
+ document.getElementById(id).innerHTML=html||'<p>ابھی کوئی ریکارڈ موجود نہیں۔</p>';
+}
+
+/* مالی خلاصہ اور فہرستیں */
+function render(){
+ let donations=getData('donations');
+ let expenses=getData('expenses');
+
+ let totalIn=donations.reduce((s,x)=>s+Number(x.amount),0);
+ let totalOut=expenses.reduce((s,x)=>s+Number(x.amount),0);
+ let balance=totalIn-totalOut;
+
+ document.getElementById('totalIn').textContent=money(totalIn);
+ document.getElementById('totalOut').textContent=money(totalOut);
+ document.getElementById('balance').textContent=money(balance);
+ document.getElementById('donorCount').textContent=donations.length.toLocaleString('ur-PK');
+
+ renderList('donationList','donations',['name','amount','date','purpose']);
+ renderList('expenseList','expenses',['name','amount','date','detail']);
+ renderList('memberList','members',['name','phone','address']);
+ renderList('helpList','help',['name','phone','detail']);
+
+ showProject();
+}
+
+/* منصوبہ اور ووٹنگ */
+function getProject(){
+ try{return JSON.parse(localStorage.getItem('welfareSingleProject')||'null')}
+ catch(e){return null}
+}
+
+function createPublicVote(){
+ let title=document.getElementById('voteTitle').value.trim();
+ let description=document.getElementById('voteDescription').value.trim();
+ let target=Number(document.getElementById('voteTarget').value);
+ let deadline=document.getElementById('voteDeadline').value;
+
+ if(!title||!description||target<=0||!deadline||new Date(deadline)<=new Date()){
+  alert('منصوبے کا نام، تفصیل، درست ہدف اور مستقبل کا آخری وقت درج کریں');
+  return;
+ }
+
+ let project={
+  id:Date.now(),
+  title,
+  description,
+  target,
+  deadline,
+  yes:0,
+  no:0
+ };
+
+ localStorage.setItem('welfareSingleProject',JSON.stringify(project));
+
+ ['voteTitle','voteDescription','voteTarget','voteDeadline'].forEach(id=>document.getElementById(id).value='');
+
+ showProject();
+ alert('منصوبہ شائع ہوگیا');
+ showTab('home');
+}
+
+function castVote(choice){
+ let p=getProject();
+
+ if(!p){alert('ابھی کوئی منصوبہ موجود نہیں');return}
+
+ if(Date.now()>=new Date(p.deadline).getTime()){
+  alert('ووٹنگ کا وقت ختم ہو چکا ہے');
+  showProject();
+  return;
+ }
+
+ if(localStorage.getItem('welfareVoted_'+p.id)){
+  alert('آپ اس منصوبے پر پہلے ہی ووٹ دے چکے ہیں');
+  return;
+ }
+
+ p[choice]=(p[choice]||0)+1;
+ localStorage.setItem('welfareVoted_'+p.id,'1');
+ localStorage.setItem('welfareSingleProject',JSON.stringify(p));
+ showProject();
+}
+
+function showProject(){
+ let p=getProject();
+ let area=document.getElementById('publicVote');
+ let status=document.getElementById('voteStatus');
+ let adminInfo=document.getElementById('adminProjectInfo');
+
+ if(!p){
+  status.textContent='منصوبہ دستیاب نہیں';
+  area.innerHTML='<p>ابھی کوئی منصوبہ شائع نہیں کیا گیا۔</p>';
+  adminInfo.textContent='ابھی کوئی منصوبہ موجود نہیں۔';
+  updateHomeTarget(0,0);
+  return;
+ }
+
+ let ended=Date.now()>=new Date(p.deadline).getTime();
+ let voted=!!localStorage.getItem('welfareVoted_'+p.id);
+ let total=p.yes+p.no;
+ let raised=getData('donations').reduce((s,x)=>s+Number(x.amount),0);
+ let remaining=Math.max(0,p.target-raised);
+ let progress=p.target>0?Math.min(100,Math.round(raised/p.target*100)):0;
+ let yesPct=total?Math.round(p.yes/total*100):0;
+
+ status.textContent=ended?'ووٹنگ بند ہے':'منصوبہ رائے شماری کے لیے کھلا ہے';
+
+ area.innerHTML=
+ '<h3>'+esc(p.title)+'</h3>'+
+ '<p>'+esc(p.description)+'</p>'+
+ '<div class="target-grid">'+
+ '<div class="target-box">منصوبے کا ہدف<b>'+money(p.target)+'</b></div>'+
+ '<div class="target-box">اب تک عطیات<b>'+money(raised)+'</b></div>'+
+ '<div class="target-box">باقی ہدف<b>'+money(remaining)+'</b></div>'+
+ '</div>'+
+ '<div>مالی پیش رفت: '+progress+'٪</div>'+
+ '<div class="progress"><span style="width:'+progress+'%"></span></div>'+
+ '<p><b>منصوبے کی منظوری:</b> ہاں '+yesPct+'٪ | نہیں '+(100-yesPct)+'٪</p>'+
+ '<div class="vote-actions">'+
+ '<button class="yes" '+(ended||voted?'disabled':'')+' onclick="castVote(\'yes\')">ہاں — حق میں ('+p.yes+')</button>'+
+ '<button class="no" '+(ended||voted?'disabled':'')+' onclick="castVote(\'no\')">نہیں — مخالفت میں ('+p.no+')</button>'+
+ '</div>'+
+ '<p>کل ووٹ: '+total+' | آخری وقت: '+new Date(p.deadline).toLocaleString('ur-PK')+'</p>'+
+ '<p><b>'+(ended?'ووٹنگ مکمل ہو چکی ہے':voted?'آپ اپنا ووٹ دے چکے ہیں':'اپنی رائے درج کریں')+'</b></p>';
+
+ adminInfo.innerHTML=
+ '<p><b>منصوبہ:</b> '+esc(p.title)+'</p>'+
+ '<p><b>ہدف:</b> '+money(p.target)+'</p>'+
+ '<p><b>آخری وقت:</b> '+new Date(p.deadline).toLocaleString('ur-PK')+'</p>';
+
+ updateHomeTarget(p.target,raised);
+}
+
+function updateHomeTarget(target,raised){
+ let remaining=Math.max(0,target-raised);
+ let pct=target>0?Math.min(100,Math.round(raised/target*100)):0;
+
+ document.getElementById('homeTarget').textContent=money(target);
+ document.getElementById('homeRaised').textContent=money(raised);
+ document.getElementById('homeRemaining').textContent=money(remaining);
+ document.getElementById('homeProgress').style.width=pct+'%';
+ document.getElementById('homePercent').textContent=pct+'٪ مکمل';
+}
+
+/* صفحہ کھلنے پر ریکارڈ دکھائیں */
+render();
+</script>
 
 </body>
 </html>
