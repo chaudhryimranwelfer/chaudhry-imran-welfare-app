@@ -18,7 +18,7 @@ function renderList(id,arr,key,fields){
  $(id).innerHTML=arr.length
  ?arr.map((x,i)=>`<div class="item">
  <b>${esc(x[fields[0]])}</b>
- ${fields.slice(1).map(f=>`<p>${esc(x[f]||'')}</p>`).join('')}
+ ${fields.slice(1).map(f=>`'<'p>${esc(x[f]||'')}'<'/p>`).join('')}
  <button class="btn danger" data-del="${key}" data-i="${i}">حذف کریں</button>
  </div>`).join('')
  :'<p class="empty">ابھی کوئی ریکارڈ موجود نہیں۔</p>';
